@@ -12,7 +12,7 @@ const app = express();
 app.use(express.json());
 app.use(cookieParser());
 app.post("/", (req, res) => {
-  console.log(req.body, "testing the code ");
+  console.log(req.body, "testing   the code ");
   res.send("hello");
 });
 app.use("/api/auth", authRoutes);

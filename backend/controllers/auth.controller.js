@@ -2,14 +2,13 @@ import User from "../models/user.model.js";
 import bcrypt from "bcryptjs";
 import generateTokenAndSetCookie from "../utils/generateToken.js";
 export const signup = async (req, res) => {
-  console.log(req.body, "body object");
+  
   try {
     const { fullName, username, password, confirmPassword, gender } = req.body;
 
     if (password !== confirmPassword) {
       return res.status(400).json({ error: "Passwords don't match" });
     }
-
     const user = await User.findOne({ username });
 
     if (user) {
@@ -32,7 +31,6 @@ export const signup = async (req, res) => {
       gender,
       profilePic: gender === "male" ? boyProfilePic : girlProfilePic,
     });
-
     if (newUser) {
       // Generate JWT token here
       generateTokenAndSetCookie(newUser._id, res);
