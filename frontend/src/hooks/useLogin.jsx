@@ -10,9 +10,8 @@ const useLogin = () => {
 		const success = handleInputErrors(username, password);
 		if (!success) return;
 		setLoading(true);
-		console.log("hello i am comming")
 		try {
-			const res = await fetch("/usersdsf/api/auth/login", {
+			const res = await fetch("/api/auth/login", {
 				method: "POST",
 				headers: { "Content-Type": "application/json" },
 				body: JSON.stringify({ username, password }),
@@ -27,7 +26,6 @@ const useLogin = () => {
 			localStorage.setItem("chat-user", JSON.stringify(data));
 			setAuthUser(data);
 		} catch (error) {
-			console.error(error)
 			toast.error(error.message);
 		} finally {
 			setLoading(false);
