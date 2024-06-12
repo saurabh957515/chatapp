@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useAuthContext } from "../../context/AuthContext";
 import { extractTime } from "../../utils/extractTime";
 import useConversation from "../../zustand/useConversation";
@@ -15,6 +16,15 @@ const Message = ({ message }) => {
 
   const shakeClass = message.shouldShake ? "shake" : "";
 
+  const deleteMessage = async (id) => {
+    try {
+      const res = await fetch(`/api/message/chat/${id}`);
+      const data = await res.json();
+      console.log(data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
   return (
     <div className={`chat ${chatClassName}`}>
       <div className="chat-image avatar">
@@ -23,6 +33,7 @@ const Message = ({ message }) => {
         </div>
       </div>
       <div
+        onClick={() => deleteMessage(message?._id)}
         className={`chat-bubble text-white ${bubbleBgColor} ${shakeClass} pb-2`}
       >
         {message.message}
