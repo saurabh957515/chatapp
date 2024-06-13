@@ -12,10 +12,9 @@ const Login = () => {
     e.preventDefault();
     await login(username, password);
   };
-  console.log("window object", window.location);
   return (
-    <div className="flex flex-col items-center justify-center min-w-96 mx-auto">
-      <div className="w-full p-6 rounded-lg shadow-md bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-0">
+    <div className="flex flex-col items-center justify-center mx-auto min-w-96">
+      <div className="w-full p-6 bg-gray-400 bg-opacity-0 rounded-lg shadow-md bg-clip-padding backdrop-filter backdrop-blur-lg">
         <h1 className="text-3xl font-semibold text-center text-gray-300">
           Login
           <span className="text-blue-500"> ChatApp</span>
@@ -23,13 +22,13 @@ const Login = () => {
 
         <form onSubmit={handleSubmit}>
           <div>
-            <label className="label p-2">
+            <label className="p-2 label">
               <span className="text-base label-text">Username</span>
             </label>
             <input
               type="text"
               placeholder="Enter username"
-              className="w-full input input-bordered h-10"
+              className="w-full h-10 input input-bordered"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
             />
@@ -42,20 +41,20 @@ const Login = () => {
             <input
               type="password"
               placeholder="Enter Password"
-              className="w-full input input-bordered h-10"
+              className="w-full h-10 input input-bordered"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
           <Link
             to="/signup"
-            className="text-sm  hover:underline hover:text-blue-600 mt-2 inline-block"
+            className="inline-block mt-2 text-sm hover:underline hover:text-blue-600"
           >
             {"Don't"} have an account?
           </Link>
 
           <div>
-            <button className="btn btn-block btn-sm mt-2" disabled={loading}>
+            <button className="mt-2 btn btn-block btn-sm" disabled={loading}>
               {loading ? (
                 <span className="loading loading-spinner "></span>
               ) : (
@@ -73,8 +72,8 @@ export default Login;
 // STARTER CODE FOR THIS FILE
 // const Login = () => {
 // 	return (
-// 		<div className='flex flex-col items-center justify-center min-w-96 mx-auto'>
-// 			<div className='w-full p-6 rounded-lg shadow-md bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-0'>
+// 		<div className='flex flex-col items-center justify-center mx-auto min-w-96'>
+// 			<div className='w-full p-6 bg-gray-400 bg-opacity-0 rounded-lg shadow-md bg-clip-padding backdrop-filter backdrop-blur-lg'>
 // 				<h1 className='text-3xl font-semibold text-center text-gray-300'>
 // 					Login
 // 					<span className='text-blue-500'> ChatApp</span>
@@ -82,10 +81,10 @@ export default Login;
 
 // 				<form>
 // 					<div>
-// 						<label className='label p-2'>
+// 						<label className='p-2 label'>
 // 							<span className='text-base label-text'>Username</span>
 // 						</label>
-// 						<input type='text' placeholder='Enter username' className='w-full input input-bordered h-10' />
+// 						<input type='text' placeholder='Enter username' className='w-full h-10 input input-bordered' />
 // 					</div>
 
 // 					<div>
@@ -95,15 +94,15 @@ export default Login;
 // 						<input
 // 							type='password'
 // 							placeholder='Enter Password'
-// 							className='w-full input input-bordered h-10'
+// 							className='w-full h-10 input input-bordered'
 // 						/>
 // 					</div>
-// 					<a href='#' className='text-sm  hover:underline hover:text-blue-600 mt-2 inline-block'>
+// 					<a href='#' className='inline-block mt-2 text-sm hover:underline hover:text-blue-600'>
 // 						{"Don't"} have an account?
 // 					</a>
 
 // 					<div>
-// 						<button className='btn btn-block btn-sm mt-2'>Login</button>
+// 						<button className='mt-2 btn btn-block btn-sm'>Login</button>
 // 					</div>
 // 				</form>
 // 			</div>

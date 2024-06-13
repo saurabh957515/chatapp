@@ -20,9 +20,7 @@ const Message = ({ message }) => {
     try {
       const res = await fetch(`/api/message/chat/${id}`);
       const data = await res.json();
-      console.log(data);
     } catch (error) {
-      console.error(error);
     }
   };
   return (
@@ -38,7 +36,7 @@ const Message = ({ message }) => {
       >
         {message.message}
       </div>
-      <div className="chat-footer opacity-50 text-xs flex gap-1 items-center">
+      <div className="flex items-center gap-1 text-xs opacity-50 chat-footer">
         {formattedTime}
       </div>
     </div>
