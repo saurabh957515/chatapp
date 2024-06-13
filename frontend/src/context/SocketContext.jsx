@@ -15,7 +15,7 @@ export const SocketContextProvider = ({ children }) => {
   //"https://live-chat-weyr.onrender.com"
   useEffect(() => {
     if (authUser) {
-      const socket = io("http://localhost:5000", {
+      const socket = io(process.env.REACT_APP_SOCKET_URL, {
         query: {
           userId: authUser._id,
         },
